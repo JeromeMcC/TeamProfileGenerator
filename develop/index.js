@@ -15,7 +15,7 @@ let Team = [];
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRenderer");
+const render = require("./lib/htmlRender");
 
 var managerCounter = 0;
 
@@ -99,7 +99,7 @@ function start() {
 
     inquirer.prompt(addNew).then((answer) => {
 
-        if (answer.addMember == "Yes") {
+        if (answer.addMember == true) {
             addRole();
         } else {
 
@@ -114,7 +114,7 @@ function start() {
 
 }
 const addNew = {
-    type: "List",
+    type: "confirm",
     message: "Do you want to add another employee? ",
     name: "addMember",
     choices: ["Yes", "No"],
